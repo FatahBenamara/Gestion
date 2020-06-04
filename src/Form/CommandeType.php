@@ -2,9 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\Client;
 use App\Entity\Commande;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CommandeType extends AbstractType
@@ -18,7 +20,7 @@ class CommandeType extends AbstractType
             ->add('totht')
             ->add('tottva')
             ->add('totttc')
-            ->add('client')
+            ->add('client', EntityType::class, [ "class" => Client::class, "choice_label" => "libelle" ])
         ;
     }
 

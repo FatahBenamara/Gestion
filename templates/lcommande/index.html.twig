@@ -9,18 +9,21 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Produit</th>
                 <th>Numc</th>
                 <th>Pv</th>
                 <th>Qte</th>
                 <th>Tva</th>
                 <th>Lig</th>
                 <th>actions</th>
+               
             </tr>
         </thead>
         <tbody>
         {% for lcommande in lcommandes %}
             <tr>
                 <td>{{ lcommande.id }}</td>
+                <td>{{ lcommande.produit.libelle }}</td>
                 <td>{{ lcommande.numc }}</td>
                 <td>{{ lcommande.pv }}</td>
                 <td>{{ lcommande.qte }}</td>

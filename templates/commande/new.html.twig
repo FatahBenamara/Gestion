@@ -3,9 +3,17 @@
 {% block title %}New Commande{% endblock %}
 
 {% block body %}
-    <h1>Create new Commande</h1>
 
-    {{ include('commande/_form.html.twig') }}
+    {{form_start(form)}}
+    {{form_row (form.numc )}}
+    {{form_row (form.client)}}
+    {{form_row (form.datecomm)}}
+    {{form_row (form.observation)}}
+    {{form_row (form.totht)}}
+    {{form_row (form.tottva)}}
+    {{form_row (form.totttc)}}
+    <button type="submit">Ajouter l'article</button>
+    {{form_end(form)}}
 
     <a href="{{ path('commande_index') }}">back to list</a>
 {% endblock %}

@@ -2,9 +2,11 @@
 
 namespace App\Form;
 
+use App\Entity\Produit;
 use App\Entity\Lcommande;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class LcommandeType extends AbstractType
@@ -17,7 +19,7 @@ class LcommandeType extends AbstractType
             ->add('qte')
             ->add('tva')
             ->add('lig')
-            ->add('produit')
+            ->add('produit', EntityType::class, [ "class" => Produit::class, "choice_label" => "libelle" ])
         ;
     }
 

@@ -2,10 +2,13 @@
 
 namespace App\Form;
 
+use App\Entity\Famille;
 use App\Entity\Produit;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class ProduitType extends AbstractType
 {
@@ -17,8 +20,8 @@ class ProduitType extends AbstractType
             ->add('pv')
             ->add('tva')
             ->add('stock')
-            ->add('image')
-            ->add('famille')
+            ->add('image', FileType::class, [ "mapped" => false, ])
+            ->add('famille', EntityType::class, [ "class" => Famille::class, "choice_label" => "libelle" ])
         ;
     }
 

@@ -35,6 +35,14 @@ class ProduitController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $imageUploade = $form->get("image")->getData();
+            $imageName = pathinfo($imageUploade->getClientOriginalName(), PATHINFO_FILENAME);
+            $imageName = str_replace(" ", "_", $imageName);
+            $imageName .= uniqid() . "." . $imageUploade->guessExtension();
+            $imageUploade->move("images", $imageName);
+            $produit->setImage($imageName);
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($produit);
             $entityManager->flush();
@@ -67,6 +75,17 @@ class ProduitController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            if($form->get("image")->getData()){
+
+                $imageUploade = $form->get("image")->getData();
+                $imageName = pathinfo($imageUploade->getClientOriginalName(), PATHINFO_FILENAME);
+                $imageName = str_replace(" ", "_", $imageName);
+                $imageName .= uniqid() . "." . $imageUploade->guessExtension();
+                $imageUploade->move("images", $imageName);
+                $produit->setImage($imageName);
+            }
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('produit_index');

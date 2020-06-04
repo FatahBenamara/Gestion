@@ -5,7 +5,16 @@
 {% block body %}
     <h1>Create new Lcommande</h1>
 
-    {{ include('lcommande/_form.html.twig') }}
+    {{form_start(form)}}
+    {{form_row (form.numc )}}
+    {{form_row (form.produit)}}
+    {{form_row (form.pv)}}
+    {{form_row (form.qte)}}
+    {{form_row (form.tva)}}
+    {{form_row (form.lig)}}
+
+    <button type="submit">Ajouter Lcommande</button>
+    {{form_end(form)}}
 
     <a href="{{ path('lcommande_index') }}">back to list</a>
 {% endblock %}
