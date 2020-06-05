@@ -12,7 +12,7 @@
                 <td>{{ commande.id }}</td>
             </tr>
             <tr>
-                <th>Numc</th>
+                <th>Numero client</th>
                 <td>{{ commande.numc }}</td>
             </tr>
             <tr>
@@ -20,7 +20,7 @@
                 <td>{{ commande.client.libelle }}</td>
             </tr>
             <tr>
-                <th>Datecomm</th>
+                <th>Date Commande</th>
                 <td>{{ commande.datecomm ? commande.datecomm|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
@@ -28,15 +28,15 @@
                 <td>{{ commande.observation }}</td>
             </tr>
             <tr>
-                <th>Totht</th>
+                <th>Total Ht</th>
                 <td>{{ commande.totht }}</td>
             </tr>
             <tr>
-                <th>Tottva</th>
+                <th>Total Tva</th>
                 <td>{{ commande.tottva }}</td>
             </tr>
             <tr>
-                <th>Totttc</th>
+                <th>Total TTC</th>
                 <td>{{ commande.totttc }}</td>
             </tr>
         </tbody>

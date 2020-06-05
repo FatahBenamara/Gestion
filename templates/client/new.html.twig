@@ -6,7 +6,7 @@
     <h1>Create new Client</h1>
 
     {{form_start(form)}}
-        {{form_row (form.code )}}
+        {{form_row (form.code) }}
         {{form_row (form.libelle)}}
         {{form_row (form.responsable)}}
         {{form_row (form.adresse)}}
@@ -16,7 +16,7 @@
         {{form_row (form.email)}}
         {{form_row (form.matfisc)}}
         {{form_row (form.cin)}}
-        <button type="submit">Ajouter un client</button>
+       {# <button type="submit">Ajouter un client</button>#}
     {{form_end(form)}}
 
     <a href="{{ path('client_index') }}">back to list</a>

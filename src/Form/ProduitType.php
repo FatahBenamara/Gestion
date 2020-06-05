@@ -9,6 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ProduitType extends AbstractType
 {
@@ -16,7 +17,7 @@ class ProduitType extends AbstractType
     {
         $builder
             ->add('libelle')
-            ->add('pa')
+            ->add('pa', TextType::class, [ "label" => 'Prix d\'achat', ])
             ->add('pv')
             ->add('tva')
             ->add('stock')
