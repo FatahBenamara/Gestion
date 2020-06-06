@@ -6,14 +6,14 @@
     <h1>Create new Produit</h1>
 
     {{form_start(form)}}
-    {{form_row (form.libelle, { 'label': 'Libellé produit' } )}}
-    {{form_row (form.pa, { 'label': 'Prix d\'achat' })}}
-    {{form_row (form.pv, { 'label': 'Prix de vente' })}}
-    {{form_row (form.tva, { 'label': 'TVA' })}}
-    {{form_row (form.stock, { 'label': 'Stocks' })}}
-    {{form_row (form.image, { 'label': 'Image' })}}
-    {{form_row (form.famille, { 'label': 'Famille produit' })}}
-    <button type="submit" class="btn btn-success">Ajouter Lcommande</button>
+    {{form_row (form.libelle)}}
+    {{form_row (form.pa)}}
+    {{form_row (form.pv)}}
+    {{form_row (form.tva)}}
+    {{form_row (form.stock)}}
+    {{form_row (form.image)}}
+    {{form_row (form.famille)}}
+   {# <button type="submit" class="btn btn-success">Ajouter Lcommande</button>#}
     {{form_end(form)}}
 <hr>
     <a href="{{ path('produit_index') }}">back to list</a>
