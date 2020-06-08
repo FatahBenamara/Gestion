@@ -43,7 +43,7 @@ class Lcommande
     private $tva;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $lig;
 

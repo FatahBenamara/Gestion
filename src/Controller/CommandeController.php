@@ -3,12 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Commande;
+use App\Entity\Lcommande;
 use App\Form\CommandeType;
+use App\Form\LcommandeType;
 use App\Repository\CommandeRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/commande")
@@ -33,10 +35,14 @@ class CommandeController extends AbstractController
         $commande = new Commande();
         $form = $this->createForm(CommandeType::class, $commande);
         $form->handleRequest($request);
+        $lcommande = new Lcommande();
+        $lform = $this->createForm(LcommandeType::class, $lcommande);
+        $lform->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() || $lform->isSubmitted()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($commande);
+            $entityManager->persist($lcommande);
             $entityManager->flush();
 
             return $this->redirectToRoute('commande_index');
@@ -45,6 +51,8 @@ class CommandeController extends AbstractController
         return $this->render('commande/new.html.twig', [
             'commande' => $commande,
             'form' => $form->createView(),
+            'lcommande' => $lcommande,
+            'lform' => $lform->createView(),
         ]);
     }
 

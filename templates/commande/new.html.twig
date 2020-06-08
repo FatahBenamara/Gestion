@@ -3,17 +3,37 @@
 {% block title %}New Commande{% endblock %}
 
 {% block body %}
+<h1>Create new commande</h1>
+    <div>
+        <table>
+            <td>{{form_start(form)}}</td> 
+            <tr>
+                
+                <td>{{form_row (form.numc )}}</td>
+                <td>{{form_row (form.client)}}</td>
+                <td>{{form_row (form.datecomm)}}</td>
+                <td>{{form_row (form.observation)}}</td>
+                <td>{{form_row (form.totht)}}</td>
+                <td>{{form_row (form.tottva)}}</td>
+                <td>{{form_row (form.totttc)}}</td>
+                {#  <td><button type="submit">Ajouter l'article</button></td>#}
+                
+            </tr>
+             
+        </table>
+    </div>
 
-    {{form_start(form)}}
-    {{form_row (form.numc )}}
-    {{form_row (form.client)}}
-    {{form_row (form.datecomm)}}
-    {{form_row (form.observation)}}
-    {{form_row (form.totht)}}
-    {{form_row (form.tottva)}}
-    {{form_row (form.totttc)}}
-   {# <button type="submit">Ajouter l'article</button>#}
-    {{form_end(form)}}
-
+    <div>
+        <table>
+            <tr>
+                <td>{{form_row (lform.numc)}}</td>
+                <td>{{form_row (lform.produit)}}</td>
+                <td>{{form_row (lform.pv)}}</td>
+                <td>{{form_row (lform.qte)}}</td>
+                <td>{{form_row (lform.tva)}}</td>
+            </tr>
+        </table>
+    </div>
+    <td>{{form_end(form)}}</td>
     <a href="{{ path('commande_index') }}">back to list</a>
 {% endblock %}

@@ -39,12 +39,10 @@
                 <td>{{ client.cin }}</td>
                 <td>
                     <a href="{{ path('client_show', {'id': client.id}) }}">show</a>
-                    
                 </td>
                 <td>
-                   
                     <a href="{{ path('client_edit', {'id': client.id}) }}">edit</a>
-                </td>
+                </td>             
             </tr>
         {% else %}
             <tr>
@@ -53,6 +51,8 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('client_new') }}">Create new</a>
+    <td>
+        <a href="{{ path('client_new') }}">new</a>
+    </td>
+    
 {% endblock %}

@@ -5,8 +5,8 @@
 {% block body %}
     <h1>Lcommande index</h1>
 
-    <table class="table">
-        <thead>
+    <table class="table ">
+        <thead >
             <tr>
                 <th>Id</th>
                 <th>Produit</th>
@@ -31,8 +31,11 @@
             {#   <td>{{ lcommande.lig }}</td>#} 
                 <td>
                     <a href="{{ path('lcommande_show', {'id': lcommande.id}) }}">show</a>
+                </td>
+                <td>
                     <a href="{{ path('lcommande_edit', {'id': lcommande.id}) }}">edit</a>
                 </td>
+              
             </tr>
         {% else %}
             <tr>
@@ -41,6 +44,8 @@
         {% endfor %}
         </tbody>
     </table>
+    <td>
+        <a href="{{ path('lcommande_new') }}">Create new</a>
+    </td>
 
-    <a href="{{ path('lcommande_new') }}">Create new</a>
 {% endblock %}
